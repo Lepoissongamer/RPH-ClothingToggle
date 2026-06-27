@@ -19,6 +19,8 @@ namespace outfitToggler
         private static Keys _keyBinding;
         private static Keys _gloveKey;
         private static Keys _glassKey;
+        private static Keys _hatKey;
+        private static Keys _visorKey;
         private static Keys _modifierKey;
         private static bool _isToggle;
         private static bool _enableQuickKey;
@@ -97,6 +99,8 @@ namespace outfitToggler
             _modifierKey = ParseKey(kc, ini.ReadString("Keybindings", "ModifierKey",     "LShiftKey"));
             _glassKey    = ParseKey(kc, ini.ReadString("Keybindings", "toggGlasses",     "V"));
             _gloveKey    = ParseKey(kc, ini.ReadString("Keybindings", "toggGloves",      "G"));
+            _hatKey      = ParseKey(kc, ini.ReadString("Keybindings", "toggHat",         "H"));
+            _visorKey    = ParseKey(kc, ini.ReadString("Keybindings", "toggVisor",       "U"));
         }
 
         private static Keys ParseKey(KeysConverter kc, string value) =>
@@ -537,6 +541,8 @@ namespace outfitToggler
                     {
                         if (Game.IsKeyDown(_gloveKey)) SwitchClothing(12);
                         if (Game.IsKeyDown(_glassKey)) SwitchClothing(3);
+                        if (Game.IsKeyDown(_hatKey)) SwitchClothing(11);
+                        if (Game.IsKeyDown(_visorKey)) SwitchClothing(15);
                     }
                 }
 
